@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="public/css/main.css">
+</head>
+<body>
+  <div class="container">
+    <div id="nickWrap">
+      <form id="setNick" role="form">
+        <h2 class="form-signin-heading">請輸入您的名字:</h2>
+        <p id="nickError"></p>
+        <div style="margin:20px;">
+          <input size="35" id="txtNickname" required="" />
+        </div>
+        <input type="Submit" class="btn btn-lg btn-primary">
+      </form>
+    </div>
+
+    <div id="contentWrap">
+      <div id="chatWrap" class="panel panel-default" >
+          <div class="panel-heading">即時聊天</div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-9">
+                <div id="chat"></div>
+                <form id="send-message">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="請輸入聊天訊息..." id="message">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-default">送出留言</button>
+                    </span>
+                  </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+                線上名單：
+              <div id="users"></div>
+            </div>
+          </div>
+          </div>
+      </div>
+      
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="public/js/index.js"></script>
+  </div>
+</body>
+</html>
