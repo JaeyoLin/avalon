@@ -1,4 +1,8 @@
 $(function(){
+
+  $('#login').hide();
+  $('#roomList').hide(); 
+
   var socket = io.connect();
   var $frmMessage = $('#send-message');
   var $frmNick = $('#setNick');
@@ -35,14 +39,21 @@ $(function(){
     }
     $('div#users').html(sb);
   });
-  socket.on('chat', function(server,msg){
-    
-    var now = new Date(); 
-    var datetime = now.getFullYear()+'/'+(now.getMonth()+1)+'/'+now.getDate(); 
-      datetime += ' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds(); 
-    $chat.append("<br /><i>系統訊息: <b>[ " + msg + " ]</b> (" + 
-      datetime + ")</i><br />");
+
+  /**
+   * 系統訊息
+   */
+  socket.on('SYSTEM_INFO', function(server, msg){
+    const now = new Date(); 
+    var datetime = now.getFullYear() + '/' + (now.getMonth()+1) + '/' + now.getDate(); 
+    datetime += ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds(); 
+
+    // $chat.append("<br /><i>系統訊息: <b>[ " + msg + " ]</b> (" + datetime + ")</i><br />");
+    $chat.append("<br />");
+    $chat.append('<span class="system-message">' + `系統訊息: ${msg} (${datetime})` + '</span>');
+    $chat.append("<br />");
   });
+
   socket.on('new message', function(data){
     var msg = data.msg;
     var name = data.nick;
