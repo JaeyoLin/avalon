@@ -1,3 +1,4 @@
+
 $(function(){
 
   $('#login').hide();
@@ -31,7 +32,7 @@ $(function(){
     socket.emit('send message', $boxMessage.val().trim());
     $boxMessage.val('');
   });
-  socket.on('usernames', function(data){
+  socket.on('PLAYERS', function(data){
     var sb = '';
     for(var d = 0; d < data.length; d++ ) {
       console.log(data[d]);
@@ -45,10 +46,7 @@ $(function(){
    */
   socket.on('SYSTEM_INFO', function(server, msg){
     const now = new Date(); 
-    var datetime = now.getFullYear() + '/' + (now.getMonth()+1) + '/' + now.getDate(); 
-    datetime += ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds(); 
-
-    // $chat.append("<br /><i>系統訊息: <b>[ " + msg + " ]</b> (" + datetime + ")</i><br />");
+    const datetime = `${now.getFullYear()}/${(now.getMonth() + 1 )}/${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
     $chat.append("<br />");
     $chat.append('<span class="system-message">' + `系統訊息: ${msg} (${datetime})` + '</span>');
     $chat.append("<br />");

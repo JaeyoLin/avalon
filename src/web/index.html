@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Avalon v1.01</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login -->
+        <div id="login">
+            <form id="setNick" class="form-signin">
+                <h2 class="form-signin-heading">Enter your name</h2>
+                <label for="txtName" class="sr-only">Name</label>
+                <input id="txtName" class="form-control" placeholder="Name" required autofocus>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Start</button>
+            </form>
+        </div>
+
+        <!--Room List-->
+        <div id="roomList" class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <span>遊戲大廳</span>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">建立遊戲</button>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">加入遊戲</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <!--- 遊戲列表 -->
+                <div id="roomList" class="card">
+                    <div class="card-header">
+                        遊戲列表
+                    </div>
+                    <div class="card-body">
+                        <div class="row room-area">
+                            <table class="table">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>遊戲編號</th>
+                                        <th>建立者</th>
+                                        <th>是否需要密碼</th>
+                                        <th>人數</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1234</th>
+                                        <td>Aaron</td>
+                                        <td>False</td>
+                                        <td>3 / 10</td>
+                                        <td><button type="button" class="btn btn-info">加入</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1235</th>
+                                        <td>Jai kai</td>
+                                        <td>True</td>
+                                        <td>7 / 7</td>
+                                        <td><button type="button" class="btn btn-info disabled">加入</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <!-- 聊天室 -->
+                        <div id="roomList" class="card">
+                            <div class="card-header">
+                                聊天室
+                            </div>
+                            <div class="card-body">
+                                <div id="chat"></div>
+                                <form id="send-message">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="請輸入聊天訊息..." id="message">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-default">送出留言</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <!-- 線上名單 -->
+                        <div id="roomList" class="card">
+                            <div class="card-header">
+                                線上名單
+                            </div>
+                            <div class="card-body">
+                                <div id="users"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="public/js/index.js"></script>
+    </div>
+</body>
+
+</html>

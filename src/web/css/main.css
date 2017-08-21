@@ -10,7 +10,8 @@ body {
   margin: 0 auto;
 }
 #chat {
-  height: 500px;
+  overflow-y: scroll;
+  height: 300px;
 }
 #contentWrap {
   display:none;
@@ -35,4 +36,12 @@ body {
 
 .chat-area {
   border: 1px #000 solid;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.test-area {
+  border: 1px red solid;
 }
