@@ -3,10 +3,13 @@ $(function(){
   var $frmMessage = $('#send-message');
   var $frmNick = $('#setNick');
   var $nickError = $('#nickError');
-  var $nickBox = $('#txtNickname');
+  var $nickBox = $('#txtName');
   var $boxMessage = $('#message');
   var $chat = $('#chat');
   
+  $('#login').show();
+  $('#roomList').hide(); 
+
   $frmNick.submit(function(e){
     console.log($nickBox.val());
     console.log('hi, frmNick');
@@ -15,8 +18,8 @@ $(function(){
     socket.emit('new user', $nickBox.val() );
     
     $nickBox.val('');
-    $('#nickWrap').hide();
-    $('#contentWrap').show();
+    $('#login').hide();
+    $('#roomList').show();
     
   });
   $frmMessage.submit(function(e){

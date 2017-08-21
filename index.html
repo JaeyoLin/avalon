@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title></title>
 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,18 +10,17 @@
 </head>
 <body>
   <div class="container">
-    <div id="nickWrap">
-      <form id="setNick" role="form">
-        <h2 class="form-signin-heading">請輸入您的名字:</h2>
-        <p id="nickError"></p>
-        <div style="margin:20px;">
-          <input size="35" id="txtNickname" required="" />
-        </div>
-        <input type="Submit" class="btn btn-lg btn-primary">
+
+    <div id="login">
+      <form id="setNick" class="form-signin">
+        <h2 class="form-signin-heading">Enter your name</h2>
+        <label for="txtName" class="sr-only">Name</label>
+        <input id="txtName" class="form-control" placeholder="Name" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Start</button>
       </form>
     </div>
 
-    <div id="contentWrap">
+    <div id="roomList">
       <div id="chatWrap" class="panel panel-default" >
           <div class="panel-heading">即時聊天</div>
           <div class="panel-body">
